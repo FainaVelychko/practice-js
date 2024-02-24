@@ -30,23 +30,23 @@
 
 // console.log(planetsLengths);
 
-const books = [
-  {
-    title: 'The Last Kingdom',
-    author: 'Bernard Cornwell',
-    genres: ['adventure', 'history'],
-  },
-  {
-    title: 'Beside Still Waters',
-    author: 'Robert Sheckley',
-    genres: ['fiction'],
-  },
-  {
-    title: 'Redder Than Blood',
-    author: 'Tanith Lee',
-    genres: ['horror', 'mysticism'],
-  },
-];
+// const books = [
+//   {
+//     title: 'The Last Kingdom',
+//     author: 'Bernard Cornwell',
+//     genres: ['adventure', 'history'],
+//   },
+//   {
+//     title: 'Beside Still Waters',
+//     author: 'Robert Sheckley',
+//     genres: ['fiction'],
+//   },
+//   {
+//     title: 'Redder Than Blood',
+//     author: 'Tanith Lee',
+//     genres: ['horror', 'mysticism'],
+//   },
+// ];
 
 // const genres = books.flatMap(book => book.genres);
 
@@ -393,3 +393,118 @@ const books = [
 // const descendingReleaseDates = releaseDates.toSorted((a, b) => b - a);
 
 // console.log(ascendingReleaseDates);
+
+// const authors = [
+//   'Tanith Lee',
+//   'Bernard Cornwell',
+//   'Robert Sheckley',
+//   'Fyodor Dostoevsky',
+//   'Howard Lovecraft',
+// ];
+
+// const authorsInAlphabetOrder = authors.toSorted((a, b) => a.localeCompare(b));
+
+// const authorsInReversedOrder = authors.toSorted((a, b) => b.localeCompare(a));
+
+// сортування за своїм порядком
+
+// const books = [
+//   {
+//     title: 'The Last Kingdom',
+//     author: 'Bernard Cornwell',
+//     rating: 8.38,
+//   },
+//   {
+//     title: 'Beside Still Waters',
+//     author: 'Robert Sheckley',
+//     rating: 8.51,
+//   },
+//   {
+//     title: 'The Dream of a Ridiculous Man',
+//     author: 'Fyodor Dostoevsky',
+//     rating: 7.75,
+//   },
+//   {
+//     title: 'Redder Than Blood',
+//     author: 'Tanith Lee',
+//     rating: 7.94,
+//   },
+//   {
+//     title: 'Enemy of God',
+//     author: 'Bernard Cornwell',
+//     rating: 8.67,
+//   },
+// ];
+
+// const sortedByAuthorName = books.toSorted((firstBook, secondBook) =>
+//   firstBook.author.localeCompare(secondBook.author)
+// );
+
+// const sortedByReversedAuthorName = books.toSorted((firstBook, secondBook) =>
+//   secondBook.author.localeCompare(firstBook.author)
+// );
+
+// const sortedByAscendingRating = books.toSorted(
+//   (firstBook, secondBook) => firstBook.rating - secondBook.rating
+// );
+
+// const sortedByDescentingRating = books.toSorted(
+//   (firstBook, secondBook) => secondBook.rating - firstBook.rating
+// );
+
+// console.log(sortedByAuthorName);
+// console.log(sortedByReversedAuthorName);
+// console.log(sortedByAscendingRating);
+// console.log(sortedByDescentingRating);
+
+// ланцюжки методів приклад
+
+// const students = [
+//   { name: 'Mango', score: 83, courses: ['mathematics', 'physics'] },
+//   { name: 'Poly', score: 59, courses: ['science', 'mathematics'] },
+//   { name: 'Ajax', score: 37, courses: ['physics', 'biology'] },
+//   { name: 'Kiwi', score: 94, courses: ['literature', 'science'] },
+// ];
+
+// // Отримаємо масив унікальних відвідуваних предметів, відсортований за алфавітом.
+
+// const uniqueSortedCourses = students
+//   .flatMap(student => student.courses)
+//   .filter((course, index, array) => array.indexOf(course) === index)
+//   // тут фільтром ми прибираєм однакові курси, щоб залишились тільки унікальні значення
+//   // якщо індекс назви курсу на співпадає з индексом поточного елемента перебору, то він його не візьме
+//   .toSorted((a, b) => a.localeCompare(b));
+
+// console.log(uniqueSortedCourses); // ["biology", "science", "literature", "mathematics", "physics"]
+
+const books = [
+  {
+    title: 'The Last Kingdom',
+    author: 'Bernard Cornwell',
+    rating: 8.38,
+  },
+  {
+    title: 'Beside Still Waters',
+    author: 'Robert Sheckley',
+    rating: 8.51,
+  },
+  {
+    title: 'The Dream of a Ridiculous Man',
+    author: 'Fyodor Dostoevsky',
+    rating: 7.75,
+  },
+  { title: 'Redder Than Blood', author: 'Tanith Lee', rating: 7.94 },
+  {
+    title: 'The Dreams in the Witch House',
+    author: 'Howard Lovecraft',
+    rating: 8.67,
+  },
+];
+const MIN_BOOK_RATING = 8;
+
+const names = books
+  .filter(book => book.rating > MIN_BOOK_RATING)
+  .map(book => book.author)
+  .toSorted((a, b) => a.localeCompare(b));
+
+console.log(names);
