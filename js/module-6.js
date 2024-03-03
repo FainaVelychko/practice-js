@@ -13,4 +13,13 @@
 //   },
 // };
 
-// console.log(pizzaPalace.order('Smoked'));
+// console.log(pizzaPalace);
+
+//Знайти унікальні елементи за допомогою reduce
+const numbers = [1, 9, 0, 1, 5, 9, 1, 6];
+const numbersFun = array =>
+  array.reduce(
+    (acc, number) => (acc.includes(number) ? acc : [...acc, number]),
+    []
+  );
+console.log(numbersFun(numbers));
